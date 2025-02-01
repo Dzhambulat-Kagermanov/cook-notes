@@ -27,6 +27,7 @@ export default tseslint.config(
 			'@typescript-eslint/no-empty-object-type': 'off',
 			'@typescript-eslint/no-unused-vars': 'off',
 			'@typescript-eslint/no-unused-expressions': 'off',
+			'no-unused-variable': [true, { 'ignore-pattern': '^_' }],
 		},
 	}
 )
