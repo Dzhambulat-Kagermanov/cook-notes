@@ -29,7 +29,8 @@ const editData = createSlice({
 })
 
 export const editDishId = (state: RootState) => state.editData.editDishId
-export const editIngredientId = (state: RootState) => state.editData.editDishId
+export const editIngredientId = (state: RootState) =>
+	state.editData.editIngredientId
 
 export const { changeEditDishId, changeEditIngredientId } = editData.actions
 export default editData.reducer

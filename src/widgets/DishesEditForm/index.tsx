@@ -68,7 +68,7 @@ const DishesEditForm: FC<Props> = ({ className, dishId }) => {
 
 	return (
 		<section className={cn(cls.wrapper, [className])}>
-			<h2 className={cls.title}>Создать блюдо</h2>
+			<h2 className={cls.title}>Изменить блюдо</h2>
 			<form className={cls.form} onSubmit={handleSubmit}>
 				<UiInput
 					label='Название'

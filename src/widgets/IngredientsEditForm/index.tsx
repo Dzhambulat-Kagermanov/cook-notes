@@ -17,7 +17,6 @@ interface Props extends TClassName {
 }
 const IngredientsEditForm: FC<Props> = ({ className, ingredientId }) => {
 	const ingredient = getIngredientForId(ingredientId)
-
 	const dispatch = useAppDispatch()
 	const [name, setName] = useState<string>(ingredient?.name || '')
 	const [packageCost, setPackageCost] = useState<string>(
@@ -62,7 +61,7 @@ const IngredientsEditForm: FC<Props> = ({ className, ingredientId }) => {
 
 	return (
 		<section className={cn(cls.wrapper, [className])}>
-			<h2 className={cls.title}>Создать блюдо</h2>
+			<h2 className={cls.title}>Изменить ингредиент</h2>
 			<form className={cls.form} onSubmit={handleSubmit}>
 				<UiInput
 					label='Название'
