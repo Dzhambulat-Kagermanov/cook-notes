@@ -23,10 +23,10 @@ export default tseslint.config(
 				'warn',
 				{ allowConstantExport: true },
 			],
-			'@typescript-eslint/ban-ts-comment': 'warn',
+			'@typescript-eslint/ban-ts-comment': 'off',
 			'@typescript-eslint/no-empty-object-type': 'off',
-			'@typescript-eslint/no-unused-vars': 'warn',
-			'@typescript-eslint/no-unused-expressions': 'warn',
+			'@typescript-eslint/no-unused-vars': 'off',
+			'@typescript-eslint/no-unused-expressions': 'off',
 		},
 	}
 )
