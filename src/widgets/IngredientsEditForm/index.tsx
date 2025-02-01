@@ -98,7 +98,7 @@ const IngredientsEditForm: FC<Props> = ({ className, ingredientId }) => {
 					}}
 				/>
 				<button className={cls.submit_btn} type='submit'>
-					Создать
+					Сохранить изменения
 				</button>
 			</form>
 		</section>

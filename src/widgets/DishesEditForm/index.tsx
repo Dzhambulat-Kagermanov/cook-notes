@@ -86,7 +86,7 @@ const DishesEditForm: FC<Props> = ({ className, dishId }) => {
 					Стоимость: <strong>{PRICE} рублей</strong>
 				</h2>
 				<button className={cls.submit_btn} type='submit'>
-					Сохранить
+					Сохранить изменения
 				</button>
 			</form>
 		</section>
