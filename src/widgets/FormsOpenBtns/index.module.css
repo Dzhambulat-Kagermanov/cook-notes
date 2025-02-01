@@ -1,0 +1,13 @@
+.wrapper {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	display: flex;
+	column-gap: 10px;
+}
+.btn {
+	background-color: black;
+	border-radius: 4px;
+	color: white;
+	padding: 5px 12px;
+}

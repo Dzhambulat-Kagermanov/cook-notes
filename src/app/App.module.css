@@ -1,0 +1,10 @@
+.main {
+	padding: 30px;
+	min-height: 100vh;
+	background-color: beige;
+}
+.ingredients_list {
+}
+.dishes_list {
+	margin-top: 60px;
+}
