@@ -17,7 +17,7 @@ const DishesAddForm: FC<Props> = ({ className }) => {
 	const [name, setName] = useState<string>('')
 	const [searchIngredient, setSearchIngredient] = useState<string>('')
 
-	const PRICE = ingredientsUsage.reduce((acc, { usage, id }) => {
+	const PRICE = ingredientsUsage.reduce((acc, { id, usage }) => {
 		const ingredient = getIngredientForId(id)
 
 		return ingredient ? acc + ingredient.packageCost * usage : 0

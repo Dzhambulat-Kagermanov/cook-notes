@@ -1,6 +1,6 @@
 import { FC, memo, MouseEventHandler } from 'react'
 import { TClassName } from '@/types/shared'
-import { cn } from '@/lib'
+import { cn, roundToNearestNonZero } from '@/lib'
 import { TIngredientProps } from '@/types/Ingredient'
 import cls from './index.module.css'
 import { useAppDispatch } from '@/hooks'
@@ -46,7 +46,8 @@ const IngredientItem: FC<Props> = memo(
 					</strong>
 				</h3>
 				<h4 className={cls.price}>
-					Стоимость: <strong>{packageCost} рублей</strong>
+					Стоимость:{' '}
+					<strong>{roundToNearestNonZero(packageCost)} рублей</strong>
 				</h4>
 				<button onClick={handleEdit} className={cls.edit_btn}>
 					Изменить

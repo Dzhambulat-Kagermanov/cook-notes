@@ -1,3 +1,6 @@
 export { getIngredientForId } from './getIngredientForId'
 export { getDishForId } from './getDishForId'
 export { cn } from './cn'
+export { roundToNearestNonZero } from './roundToNearestNonZero'
+export { unitPriceCalculate } from './unitPriceCalculate'
+export * from './getMetricType'

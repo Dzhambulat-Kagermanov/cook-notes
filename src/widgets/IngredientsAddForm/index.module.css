@@ -12,9 +12,6 @@
 	gap: inherit;
 	display: flex;
 }
-.metric .inp_wrapper {
-	flex: 1;
-}
 .metric .inp_wrapper:first-child {
 	flex: 2;
 }
@@ -34,4 +31,16 @@
 .checkbox input {
 	width: 20px;
 	height: 20px;
+}
+.unit_select {
+	border: 1px solid brown;
+	height: 31.8px;
+	padding: 0 8px 0 4px;
+	align-self: flex-end;
+}
+.unit_select option:nth-child(even) {
+	background-color: rgb(255, 239, 219);
+}
+.unit_select:focus > option:checked {
+	background: rgb(219, 205, 187);
 }

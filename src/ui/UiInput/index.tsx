@@ -4,12 +4,13 @@ import { cn } from '@/lib'
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
 	label?: string
+	inpCls?: string
 }
-const UiInput: FC<Props> = memo(({ className, label, ...inpProps }) => {
+const UiInput: FC<Props> = memo(({ className, label, inpCls, ...inpProps }) => {
 	return (
 		<label className={cn(cls.wrapper, [className])}>
 			{label && <h2 className={cls.label_text}>{label}</h2>}
-			<input {...inpProps} />
+			<input className={inpCls} {...inpProps} />
 		</label>
 	)
 })

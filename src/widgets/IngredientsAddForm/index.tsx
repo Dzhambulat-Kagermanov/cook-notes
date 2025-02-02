@@ -13,7 +13,7 @@ const IngredientsAddForm: FC<Props> = ({ className }) => {
 	const [name, setName] = useState<string>('')
 	const [packageCost, setPackageCost] = useState<string>('')
 	const [packageVolume, setPackageVolume] = useState<string>('')
-	const [unit, setUnit] = useState<string>('')
+	const [unit, setUnit] = useState<TIngredientProps['unit']>('')
 	const [clearAfterAdded, setClearAfterAdded] = useState<boolean>(true)
 
 	const handleSubmit: FormEventHandler = e => {
@@ -77,14 +77,23 @@ const IngredientsAddForm: FC<Props> = ({ className }) => {
 							setPackageVolume(e.target.value)
 						}}
 					/>
-					<UiInput
-						className={cls.inp_wrapper}
-						label='Мера подсчета (гр, кг и т.д)'
+					<select
+						className={cls.unit_select}
 						value={unit}
 						onChange={e => {
 							setUnit(e.target.value)
 						}}
-					/>
+					>
+						<option value='' disabled hidden>
+							Мера подсчета (гр, кг и т.д)
+						</option>
+						<option value='гр'>гр (грамм)</option>
+						<option value='кг'>кг (килограмм)</option>
+						<option value='л'>л (литр)</option>
+						<option value='мл'>мл (миллилитр)</option>
+						<option value='шт'>шт (штука)</option>
+						<option value='ст'>ст (стакан)</option>
+					</select>
 				</div>
 				<UiInput
 					type='number'

@@ -11,6 +11,7 @@ import { hideModal } from '@/store/modals'
 import { INGREDIENTS_EDIT_MODAL } from '@/constants'
 import { TIngredientProps } from '@/types/Ingredient'
 import cls from './index.module.css'
+import { TDishesIngredientProps, TDishesProps } from '@/types/Dishes'
 
 interface Props extends TClassName {
 	ingredientId: number
@@ -44,15 +45,53 @@ const IngredientsEditForm: FC<Props> = ({ className, ingredientId }) => {
 			const ingredientsList: TIngredientProps[] =
 				JSON.parse(localStorage.getItem('ingredientsList') as string) || []
 
+			let unitWasChanged: boolean = false
+
 			localStorage.setItem(
 				'ingredientsList',
 				JSON.stringify([
 					...ingredientsList.filter(props => {
+						if (props.id === editItem.id) {
+							if (unit !== props.unit) {
+								unitWasChanged = true
+							}
+						}
+
 						return props.id !== editItem.id
 					}),
 					editItem,
 				])
 			)
+			if (unitWasChanged) {
+				const dishesList: TDishesProps[] =
+					JSON.parse(localStorage.getItem('dishesList') as string) || []
+
+				localStorage.setItem(
+					'dishesList',
+					JSON.stringify(
+						dishesList.map(({ ingredientsUsage, ...other }) => {
+							return {
+								...other,
+								ingredientsUsage: ingredientsUsage.map(
+									({ id, usage, ...other }) => {
+										return id === ingredientId
+											? ({
+													id,
+													unit,
+													usage,
+											  } as TDishesIngredientProps)
+											: ({
+													id,
+													usage,
+													unit: other.unit,
+											  } as TDishesIngredientProps)
+									}
+								),
+							}
+						})
+					)
+				)
+			}
 			dispatch(toggleIngredientsUpdated())
 			dispatch(toggleDishesUpdated())
 			dispatch(hideModal({ slug: INGREDIENTS_EDIT_MODAL }))
@@ -80,14 +119,23 @@ const IngredientsEditForm: FC<Props> = ({ className, ingredientId }) => {
 							setPackageVolume(e.target.value)
 						}}
 					/>
-					<UiInput
-						className={cls.inp_wrapper}
-						label='Мера подсчета (гр, кг и т.д)'
+					<select
+						className={cls.unit_select}
 						value={unit}
 						onChange={e => {
 							setUnit(e.target.value)
 						}}
-					/>
+					>
+						<option value='' disabled hidden>
+							Мера подсчета (гр, кг и т.д)
+						</option>
+						<option value='гр'>гр (грамм)</option>
+						<option value='кг'>кг (килограмм)</option>
+						<option value='л'>л (литр)</option>
+						<option value='мл'>мл (миллилитр)</option>
+						<option value='шт'>шт (штука)</option>
+						<option value='ст'>ст (стакан)</option>
+					</select>
 				</div>
 				<UiInput
 					type='number'

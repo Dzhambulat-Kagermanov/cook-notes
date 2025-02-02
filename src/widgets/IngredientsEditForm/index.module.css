@@ -30,3 +30,16 @@
 	font-size: 22px;
 	margin-top: 10px;
 }
+
+.unit_select {
+	border: 1px solid brown;
+	height: 31.8px;
+	padding: 0 8px 0 4px;
+	align-self: flex-end;
+}
+.unit_select option:nth-child(even) {
+	background-color: rgb(255, 239, 219);
+}
+.unit_select:focus > option:checked {
+	background: rgb(219, 205, 187);
+}

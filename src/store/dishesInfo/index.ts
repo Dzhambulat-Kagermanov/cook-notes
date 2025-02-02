@@ -1,4 +1,4 @@
-import { TDishesIngredientProps, TDishesProps } from '@/types/Dishes'
+import { TDishesIngredientProps } from '@/types/Dishes'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 
@@ -15,22 +15,23 @@ const dishesInfo = createSlice({
 	reducers: {
 		setUsageIngredients(
 			state,
-			{
-				payload: { ingredientsUsage },
-			}: PayloadAction<{ ingredientsUsage: TDishesProps['ingredientsUsage'] }>
+			{ payload }: PayloadAction<TDishesIngredientProps[]>
 		) {
-			state.usageIngredients = ingredientsUsage
+			state.usageIngredients = payload
 		},
 		changeUsageItem(
 			state,
-			{ payload: { id, usage } }: PayloadAction<TDishesIngredientProps>
+			{ payload: { id, usage, unit } }: PayloadAction<TDishesIngredientProps>
 		) {
 			const index = state.usageIngredients.findIndex(props => {
 				return props.id === id
 			})
-			index === -1
-				? state.usageIngredients.push({ id, usage })
-				: (state.usageIngredients[index].usage = usage)
+			if (index === -1) {
+				state.usageIngredients.push({ id, usage, unit })
+			} else {
+				state.usageIngredients[index].usage = usage
+				state.usageIngredients[index].unit = unit
+			}
 		},
 		removeUsageItem(
 			state,

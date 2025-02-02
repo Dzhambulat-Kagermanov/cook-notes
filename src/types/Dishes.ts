@@ -1,6 +1,7 @@
 export type TDishesIngredientProps = {
 	id: number
 	usage: number
+	unit: string
 }
 export type TDishesProps = {
 	id: number
@@ -8,5 +9,6 @@ export type TDishesProps = {
 	ingredientsUsage: {
 		id: number
 		usage: number
+		unit: string
 	}[]
 }

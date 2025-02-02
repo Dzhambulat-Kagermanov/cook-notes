@@ -1,6 +1,6 @@
-import { FC, FormEventHandler, useEffect, useState } from 'react'
+import { FC, FormEventHandler, useEffect, useMemo, useState } from 'react'
 import { TClassName } from '@/types/shared'
-import { cn, getDishForId, getIngredientForId } from '@/lib'
+import { cn, getDishForId, getIngredientForId, unitPriceCalculate } from '@/lib'
 import { UiInput } from '@/ui/UiInput'
 import { useAppDispatch, useAppSelector } from '@/hooks'
 import { toggleDishesUpdated } from '@/store/localStorageUpdated'
@@ -25,15 +25,13 @@ const DishesEditForm: FC<Props> = ({ className, dishId }) => {
 
 	useEffect(() => {
 		if (dish) {
-			dispatch(setUsageIngredients({ ingredientsUsage: dish.ingredientsUsage }))
+			dispatch(setUsageIngredients(dish.ingredientsUsage))
 		}
 	}, [])
 
-	const PRICE = ingredientsUsage.reduce((acc, { usage, id }) => {
-		const ingredient = getIngredientForId(id)
-
-		return ingredient ? acc + ingredient.packageCost * usage : 0
-	}, 0)
+	const PRICE = useMemo<number>(() => {
+		return unitPriceCalculate(ingredientsUsage)
+	}, [ingredientsUsage])
 
 	const handleSubmit: FormEventHandler = e => {
 		e.preventDefault()
