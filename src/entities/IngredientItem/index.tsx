@@ -39,22 +39,26 @@ const IngredientItem: FC<Props> = memo(
 		return (
 			<li className={cn(cls.wrapper, [className])}>
 				<h2 className={cls.title}>{name}</h2>
-				<h3 className={cls.info}>
-					Количество:{' '}
-					<strong>
-						{packageVolume} {unit}
-					</strong>
-				</h3>
-				<h4 className={cls.price}>
-					Стоимость:{' '}
-					<strong>{roundToNearestNonZero(packageCost)} рублей</strong>
-				</h4>
-				<button onClick={handleEdit} className={cls.edit_btn}>
-					Изменить
-				</button>
-				<button onClick={handleRemove} className={cls.del_btn}>
-					Удалить
-				</button>
+				<div className={cls.info}>
+					<h3 className={cls.qnt}>
+						Количество:{' '}
+						<strong>
+							{packageVolume} {unit}
+						</strong>
+					</h3>
+					<h4 className={cls.price}>
+						Стоимость:{' '}
+						<strong>{roundToNearestNonZero(packageCost)} рублей</strong>
+					</h4>
+				</div>
+				<div className={cls.btns}>
+					<button onClick={handleEdit} className={cls.edit_btn}>
+						Изменить
+					</button>
+					<button onClick={handleRemove} className={cls.del_btn}>
+						Удалить
+					</button>
+				</div>
 			</li>
 		)
 	}

@@ -63,7 +63,10 @@ const DishesAddForm: FC<Props> = ({ className }) => {
 					searchIngredient={searchIngredient}
 					setSearchIngredient={setSearchIngredient}
 				/>
-				<UsageGroup ingredientsUsage={ingredientsUsage} />
+				<UsageGroup
+					ingredientsUsage={ingredientsUsage}
+					className={cls.usage_group}
+				/>
 				<h2 className={cls.price}>
 					Стоимость: <strong>{PRICE} рублей</strong>
 				</h2>

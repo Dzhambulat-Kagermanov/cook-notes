@@ -32,6 +32,10 @@ const UsageGroupItem: FC<Props> = ({
 	)
 
 	useEffect(() => {
+		setUnit(usageUnit)
+	}, [usageUnit])
+
+	useEffect(() => {
 		if (unit !== 'Нет данных') {
 			dispatch(
 				changeUsageItem({
@@ -50,7 +54,6 @@ const UsageGroupItem: FC<Props> = ({
 			</h2>
 			<div className={cls.content}>
 				<UiInput
-					className={cls.inp_wrapper}
 					inpCls={cls.inp}
 					type='number'
 					value={value}

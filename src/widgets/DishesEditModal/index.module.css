@@ -1,0 +1,12 @@
+.close_modal_btn {
+	padding: 5px 15px;
+	border: 1px solid black;
+	border-radius: 5px;
+	margin-left: auto;
+}
+
+@media screen and (max-width: 480px) {
+	.modal_content {
+		padding: 20px 30px 30px 30px;
+	}
+}

@@ -18,12 +18,14 @@ const FormsOpenBtns: FC<Props> = ({ className }) => {
 
 	return (
 		<div className={cn(cls.wrapper, [className])}>
-			<button className={cls.btn} onClick={handleDishes}>
-				Создать блюдо +
-			</button>
-			<button className={cls.btn} onClick={handleIngredients}>
-				Создать ингредиент +
-			</button>
+			<div className={cls.content}>
+				<button className={cls.btn} onClick={handleDishes}>
+					Создать блюдо +
+				</button>
+				<button className={cls.btn} onClick={handleIngredients}>
+					Создать ингредиент +
+				</button>
+			</div>
 		</div>
 	)
 }

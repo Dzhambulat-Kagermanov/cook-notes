@@ -19,6 +19,7 @@ const DishesAddModal: FC<Props> = ({ className }) => {
 
 	return (
 		<UiModal
+			contentCls={cls.modal_content}
 			handleClose={() => {
 				dispatch(resetUsageItems())
 			}}

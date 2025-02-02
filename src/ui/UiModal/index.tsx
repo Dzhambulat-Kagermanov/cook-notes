@@ -9,8 +9,15 @@ import cls from './index.module.css'
 interface Props extends TClassName, TChildren {
 	slug: TModalSlug
 	handleClose?: MouseEventHandler
+	contentCls?: string
 }
-const UiModal: FC<Props> = ({ className, children, slug, handleClose }) => {
+const UiModal: FC<Props> = ({
+	className,
+	children,
+	slug,
+	handleClose,
+	contentCls,
+}) => {
 	const dispatch = useAppDispatch()
 	const modalsNode = document.querySelector('#modals')
 	const modalProps = useAppSelector(modalsStates)[slug]
@@ -32,7 +39,7 @@ const UiModal: FC<Props> = ({ className, children, slug, handleClose }) => {
 								onClick={e => {
 									e.stopPropagation()
 								}}
-								className={cls.content}
+								className={cn(cls.content, [contentCls])}
 							>
 								{children}
 							</div>

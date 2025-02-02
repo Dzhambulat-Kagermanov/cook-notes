@@ -49,9 +49,14 @@ const DishItem: FC<Props> = memo(
 						const ingredient = getIngredientForId(id)
 						return ingredient ? (
 							<li className={cls.item} key={id}>
-								<h2>Ингредиент: {ingredient.name}</h2>
 								<h2>
-									Количество: {usage} {unit || 'Нет данных'}
+									Ингредиент: <strong>{ingredient.name}</strong>
+								</h2>
+								<h2>
+									Количество:{' '}
+									<strong>
+										{usage} {unit || 'Нет данных'}
+									</strong>
 								</h2>
 							</li>
 						) : null
@@ -60,12 +65,14 @@ const DishItem: FC<Props> = memo(
 				<h2 className={cls.price}>
 					Цена блюда: <strong>{roundToNearestNonZero(PRICE)} рублей</strong>
 				</h2>
-				<button onClick={handleEdit} className={cls.edit_btn}>
-					Изменить
-				</button>
-				<button onClick={handleRemove} className={cls.del_btn}>
-					Удалить
-				</button>
+				<div className={cls.btns}>
+					<button onClick={handleEdit} className={cls.edit_btn}>
+						Изменить
+					</button>
+					<button onClick={handleRemove} className={cls.del_btn}>
+						Удалить
+					</button>
+				</div>
 			</li>
 		)
 	}

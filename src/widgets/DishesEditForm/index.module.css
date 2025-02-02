@@ -1,6 +1,6 @@
 .title {
 	font-size: 40px;
-	margin-bottom: 20px;
+	margin: 20px 0;
 }
 
 .form {
@@ -29,4 +29,16 @@
 .price {
 	font-size: 22px;
 	margin-top: 10px;
+}
+
+@media screen and (max-width: 480px) {
+	.price {
+		font-size: 18px;
+	}
+	.title {
+		font-size: 25px;
+	}
+	.submit_btn {
+		width: 100%;
+	}
 }

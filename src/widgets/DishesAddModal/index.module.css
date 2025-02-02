@@ -4,3 +4,9 @@
 	border-radius: 5px;
 	margin-left: auto;
 }
+
+@media screen and (max-width: 480px) {
+	.modal_content {
+		padding: 20px 30px 30px 30px;
+	}
+}

@@ -1,5 +1,6 @@
 .main {
 	padding: 30px;
+	padding-bottom: 130px;
 	min-height: 100vh;
 	background-color: beige;
 }
@@ -7,4 +8,11 @@
 }
 .dishes_list {
 	margin-top: 60px;
+}
+
+@media screen and (max-width: 480px) {
+	.main {
+		padding: 15px;
+		padding-bottom: 130px;
+	}
 }

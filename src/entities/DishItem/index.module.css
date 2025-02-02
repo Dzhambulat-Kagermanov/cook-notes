@@ -1,24 +1,32 @@
 .wrapper {
 	border: 1px solid brown;
 	padding: 15px;
-	padding-bottom: 35px;
+	padding-bottom: 25px;
 	border-radius: 5px;
 }
 .title {
 	font-size: 30px;
+	font-weight: bold;
 }
 .ing_usage_group {
-	margin: 20px 0;
+	margin: 20px 0 40px 0;
 	display: flex;
 	flex-flow: column;
-	gap: 10px;
+	gap: 20px;
 }
 .ing_usage_group .item {
 	display: flex;
-	gap: 20px;
+	flex-direction: column;
+	gap: 5px;
 }
 .price {
 	font-size: 18px;
+}
+.btns {
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 10px;
 }
 .del_btn {
 	width: 100%;
@@ -26,12 +34,12 @@
 	border-radius: 4px;
 	color: white;
 	font-weight: 700;
-	background-color: red;
+	background-color: rgb(224, 73, 73);
 	transition: 0.2s ease;
-	margin-top: 20px;
 }
 .del_btn:hover {
-	background-color: rgb(231, 0, 0);
+	scale: 1.02;
+	background-color: rgb(255, 0, 0);
 }
 .edit_btn {
 	width: 100%;
@@ -39,10 +47,15 @@
 	border-radius: 4px;
 	color: white;
 	font-weight: 700;
-	background-color: rgb(0, 195, 255);
+	background-color: rgb(114, 204, 85);
 	transition: 0.2s ease;
-	margin-top: 20px;
 }
 .edit_btn:hover {
-	background-color: rgb(0, 167, 218);
+	scale: 1.02;
+	background-color: rgb(155, 235, 129);
+}
+@media screen and (max-width: 480px) {
+	.title {
+		font-size: 24px;
+	}
 }

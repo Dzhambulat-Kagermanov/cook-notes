@@ -104,6 +104,7 @@ const IngredientsAddForm: FC<Props> = ({ className }) => {
 					}}
 				/>
 				<UiInput
+					labelCls={cls.label}
 					label='Очищать форму после добавления'
 					className={cls.checkbox}
 					//@ts-ignore

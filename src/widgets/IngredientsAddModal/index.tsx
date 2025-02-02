@@ -17,6 +17,7 @@ const IngredientsAddModal: FC<Props> = ({ className }) => {
 
 	return (
 		<UiModal
+			contentCls={cls.modal_content}
 			slug={INGREDIENTS_ADD_MODAL}
 			className={cn(cls.wrapper, [className])}
 		>

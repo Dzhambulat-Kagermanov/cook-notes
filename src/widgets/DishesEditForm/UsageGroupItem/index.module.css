@@ -2,25 +2,42 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	column-gap: 10px;
+	row-gap: 5px;
+	column-gap: 15px;
+	width: 100%;
 }
 .title {
 	font-size: 20px;
 	font-weight: 600;
 }
 .content {
+	max-width: 70%;
+	width: 100%;
 	display: flex;
-	column-gap: 10px;
+	gap: 10px;
 	align-items: center;
+	flex-grow: 1;
 }
 .remove_btn {
+	min-width: 100px;
 	padding: 5px 12px;
 	background-color: red;
 	border-radius: 4px;
 	color: white;
 }
 
+.inp {
+	text-align: right;
+}
+.metric_unit {
+	font-size: 22px;
+}
+.content .inp_wrapper {
+	flex: 1;
+}
+
 .unit_select {
+	flex: 1;
 	border: 1px solid brown;
 	height: 31.8px;
 	padding: 0 8px 0 4px;
@@ -31,4 +48,23 @@
 }
 .unit_select:focus > option:checked {
 	background: rgb(219, 205, 187);
+}
+
+@media screen and (max-width: 768px) {
+	.wrapper {
+		flex-flow: wrap;
+	}
+	.content {
+		max-width: 100%;
+		flex-wrap: wrap;
+	}
+}
+@media screen and (max-width: 480px) {
+	.content .inp_wrapper {
+		max-width: 100%;
+		flex: 1;
+	}
+	.content {
+		flex-wrap: wrap;
+	}
 }
