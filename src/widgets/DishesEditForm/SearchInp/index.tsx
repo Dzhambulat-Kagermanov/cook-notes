@@ -42,13 +42,13 @@ const SearchInp: FC<Props> = ({ searchIngredient, setSearchIngredient }) => {
 			/>
 			{searchIngredient && filteredIngredients.length ? (
 				<ul className={cls.search_inp_content}>
-					{filteredIngredients.map(({ id, name }) => {
+					{filteredIngredients.map(({ id, name, unit }) => {
 						return (
 							<li
 								className={cls.item}
 								key={id}
 								onClick={() => {
-									handleSearchItemClick({ id, usage: 1 })
+									handleSearchItemClick({ id, usage: 1, unit })
 								}}
 							>
 								<h2>{name}</h2>
