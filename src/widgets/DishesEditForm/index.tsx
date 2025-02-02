@@ -27,7 +27,7 @@ const DishesEditForm: FC<Props> = ({ className, dishId }) => {
 		if (dish) {
 			dispatch(setUsageIngredients(dish.ingredientsUsage))
 		}
-	}, [])
+	}, [dispatch])
 
 	const PRICE = useMemo<number>(() => {
 		return unitPriceCalculate(ingredientsUsage)

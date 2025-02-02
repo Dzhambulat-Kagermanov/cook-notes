@@ -45,7 +45,7 @@ const UsageGroupItem: FC<Props> = ({
 				})
 			)
 		}
-	}, [unit])
+	}, [unit, dispatch])
 
 	return (
 		<li className={cn(cls.wrapper, [className])}>

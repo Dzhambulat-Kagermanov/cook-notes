@@ -39,7 +39,7 @@ const DishItem: FC<Props> = memo(
 
 		const PRICE = useMemo<number>(() => {
 			return unitPriceCalculate(ingredientsUsage)
-		}, [id, ingredientsUsage])
+		}, [ingredientsUsage])
 
 		return (
 			<li className={cn(cls.wrapper, [className])}>
