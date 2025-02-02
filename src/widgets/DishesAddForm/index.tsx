@@ -1,6 +1,6 @@
 import { FC, FormEventHandler, useMemo, useState } from 'react'
 import { TClassName } from '@/types/shared'
-import { cn, getIngredientForId, unitPriceCalculate } from '@/lib'
+import { cn, unitPriceCalculate } from '@/lib'
 import { UiInput } from '@/ui/UiInput'
 import { useAppDispatch, useAppSelector } from '@/hooks'
 import { toggleDishesUpdated } from '@/store/localStorageUpdated'
