@@ -1,6 +1,6 @@
-import { FC, FormEventHandler, useState } from 'react'
+import { FC, FormEventHandler, useMemo, useState } from 'react'
 import { TClassName } from '@/types/shared'
-import { cn, getIngredientForId } from '@/lib'
+import { cn, getIngredientForId, unitPriceCalculate } from '@/lib'
 import { UiInput } from '@/ui/UiInput'
 import { useAppDispatch, useAppSelector } from '@/hooks'
 import { toggleDishesUpdated } from '@/store/localStorageUpdated'
@@ -17,11 +17,9 @@ const DishesAddForm: FC<Props> = ({ className }) => {
 	const [name, setName] = useState<string>('')
 	const [searchIngredient, setSearchIngredient] = useState<string>('')
 
-	const PRICE = ingredientsUsage.reduce((acc, { id, usage }) => {
-		const ingredient = getIngredientForId(id)
-
-		return ingredient ? acc + ingredient.packageCost * usage : 0
-	}, 0)
+	const PRICE = useMemo<number>(() => {
+		return unitPriceCalculate(ingredientsUsage)
+	}, [ingredientsUsage])
 
 	const handleSubmit: FormEventHandler = e => {
 		e.preventDefault()
